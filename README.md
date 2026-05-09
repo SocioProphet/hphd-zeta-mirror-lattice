@@ -1,2 +1,66 @@
-# hphd-zeta-mirror-lattice
-HPHD zeta mirror-lattice, explicit-formula experiments, BSD-adjacent reproducibility archive
+# HPHD Zeta Mirror Lattice
+
+HPHD zeta mirror-lattice, explicit-formula experiments, and BSD-adjacent reproducibility archive.
+
+This repository captures the current HPHD working lane on trivial zeta zeros, non-trivial zeta zeros, negative mirror lattices, zeta-regularized density, and the route toward reproducible analytic-number-theory experiments.
+
+## Current thesis
+
+The trivial zeros of the Riemann zeta function are not conceptually disposable. They are the regular negative-side cancellation lattice of the completed zeta system. The non-trivial zeros form the fluctuation spectrum tied to prime-distribution irregularity. Zeta-regularized negative values are finite analytic shadows of divergent positive density.
+
+The manuscript-safe claim is:
+
+```text
+negative domain = mirror lattice + completion correction + regularized density shadow
+```
+
+For the base zeta function:
+
+```math
+\mathcal M^-_{\zeta}=\{-2n:n\in\mathbb N\}
+```
+
+is the canonical HPHD mirror lattice.
+
+## Claim boundary
+
+We may say:
+
+- The trivial zeros form a negative mirror lattice for the completed zeta system.
+- The non-trivial zeros form a fluctuation spectrum tied to prime irregularity.
+- Zeta regularization assigns finite negative invariants to certain divergent positive densities.
+- A density correspondence between trivial and non-trivial zeros requires an explicit embedding, reparameterization, spectral index, or pushforward measure.
+
+We must not say, literally:
+
+- The trivial zeros are primes.
+- The trivial zeros and non-trivial zeros have the same raw density.
+- Divergent series equal their zeta-regularized values as ordinary sums.
+
+Use this notation instead:
+
+```math
+1+1+1+\cdots \overset{\zeta\text{-reg}}{=} -\frac12
+```
+
+not ordinary equality.
+
+## Repository layout
+
+```text
+docs/
+  01-negative-mirror-lattice.md   Manuscript-grade synthesis of the refined HPHD section
+  02-formal-claims.md             Definitions, lemmas, conjectures, and admissible claim boundaries
+  03-research-roadmap.md          Next research lanes and reproducibility backlog
+```
+
+## Immediate research lanes
+
+1. Define the admissible embedding class `Phi` for comparing the trivial-zero mirror lattice with the non-trivial-zero spectrum.
+2. Extend from `zeta(s)` to Dirichlet `L(s, chi)` functions so mirror lattices become character/parity dependent.
+3. Build explicit-formula experiments that separate main term, non-trivial-zero oscillation, and trivial-zero/completion correction terms.
+4. Add BSD/Clay-adjacent reproducibility scaffolding: scripts, notebooks, fixtures, receipts, and numerical validation gates.
+
+## Status
+
+Draft v0.1. This repo is a research-program capture, not a proof of the Riemann hypothesis and not a claim that trivial zeros are literal negative primes.
