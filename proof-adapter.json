@@ -1,0 +1,27 @@
+{
+  "adapter_version": "0.1",
+  "repo": "SocioProphet/hphd-zeta-mirror-lattice",
+  "domain": "zeta-rh-smoothed-observable-mirror-lattice",
+  "controller_protocol": "protocol/proof-apparatus-workspace/v0",
+  "claims": [],
+  "gates": [
+    { "gate_id": "smoothed-observable-decomposition", "kind": "symbolic_check", "status": "planned" },
+    { "gate_id": "main-nt-mirror-comp-error", "kind": "symbolic_check", "status": "planned" },
+    { "gate_id": "zero-localization-nonclaim", "kind": "non_claim_check", "status": "planned" },
+    { "gate_id": "finite-degree-artin-transfer", "kind": "obstruction_check", "status": "planned" }
+  ],
+  "non_claims": [
+    {
+      "non_claim_id": "hphd-zeta.no-rh-proof",
+      "statement": "This adapter does not claim a proof of the Riemann Hypothesis, GRH, or automorphic L-function RH."
+    },
+    {
+      "non_claim_id": "hphd-zeta.no-zero-localization",
+      "statement": "This adapter does not claim zero-localization output unless a repo-local gate emits evidence accepted by SocioSphere."
+    },
+    {
+      "non_claim_id": "hphd-zeta.no-artin-holomorphy-proof",
+      "statement": "This adapter does not claim Artin L-function holomorphy beyond explicitly gated finite-degree diagnostics."
+    }
+  ]
+}
