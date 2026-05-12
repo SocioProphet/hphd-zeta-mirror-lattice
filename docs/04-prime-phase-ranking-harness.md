@@ -124,7 +124,7 @@ Disallowed v0.1 wheel policy:
 ```text
 changing M after seeing a benchmark failure
 choosing M per window unless the rule is frozen before the run
-using an undeclared tuned composite modulus
+using an undeclared adaptive modulus
 ```
 
 ## 6. Symbol discipline
