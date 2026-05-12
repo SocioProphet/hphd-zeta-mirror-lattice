@@ -1,0 +1,31 @@
+name: Prime phase claim boundaries
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'docs/04-prime-phase-ranking-harness.md'
+      - 'schemas/prime_phase_harness.schema.json'
+      - 'tests/test_prime_phase_claim_boundaries.py'
+      - '.github/workflows/prime-phase-claim-boundaries.yml'
+  pull_request:
+    paths:
+      - 'docs/04-prime-phase-ranking-harness.md'
+      - 'schemas/prime_phase_harness.schema.json'
+      - 'tests/test_prime_phase_claim_boundaries.py'
+      - '.github/workflows/prime-phase-claim-boundaries.yml'
+
+jobs:
+  claim-boundary-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run claim-boundary tests
+        run: python -m unittest tests/test_prime_phase_claim_boundaries.py
