@@ -49,9 +49,10 @@ not ordinary equality.
 
 ```text
 docs/
-  01-negative-mirror-lattice.md   Manuscript-grade synthesis of the refined HPHD section
-  02-formal-claims.md             Definitions, lemmas, conjectures, and admissible claim boundaries
-  03-research-roadmap.md          Next research lanes and reproducibility backlog
+  01-negative-mirror-lattice.md            Manuscript-grade synthesis of the refined HPHD section
+  02-formal-claims.md                      Definitions, lemmas, conjectures, and admissible claim boundaries
+  03-research-roadmap.md                   Next research lanes and reproducibility backlog
+  04-explicit-formula-typing-gate.md       Formula-level decomposition + strict typing rules (the “gate”)
 ```
 
 ## Immediate research lanes
