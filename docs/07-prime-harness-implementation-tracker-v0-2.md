@@ -4,13 +4,13 @@ Status: execution tracker for `docs/05-prime-harness-benchmark-spec-v0-2.md`.
 
 ## Current tranche
 
-This tranche lands the corrected benchmark protocol only. It does not claim benchmark results and does not implement primality or residual computations yet.
+M0 and M1 are merged. Current open tranche is M2a: ψ explicit-formula N-scan runner and report shape. This tranche adds the executable path for the first measured Model 1 scan but does not claim benchmark results until audited external zero tables are supplied and G0 passes.
 
 Repository home: `SocioProphet/hphd-zeta-mirror-lattice`.
 
 Boundary: standalone analytic-number-theory research lane. No connection to `superconscious` is warranted. No connection to the BSD proof program is required.
 
-M0 deliverable format: prose SPEC + claim ledger + implementation tracker. Machine-readable gate/schema files are deferred to M1 unless required by CI wiring.
+M0 deliverable format: prose SPEC + claim ledger + implementation tracker. Machine-readable gate/schema files are deferred until required by CI wiring.
 
 ## M0 — SPEC v0.2 patch
 
@@ -31,20 +31,23 @@ M0 deliverable format: prose SPEC + claim ledger + implementation tracker. Machi
 
 ## M1 — Infrastructure
 
-- [ ] `prime_harness/intervals.py` — interval definitions and fold schedules.
-- [ ] `prime_harness/sieve_truth.py` — bounded segmented sieve / exact oracle.
-- [ ] `prime_harness/li_quadrature.py` — offset Li computation and box `L_j`.
-- [ ] `prime_harness/psi_residual.py` — ψ box residual target.
-- [ ] `prime_harness/zeta_zeros.py` — zero-table loader.
-- [ ] `prime_harness/zero_table_provenance.py` — G0 validation.
-- [ ] `prime_harness/manifest.py` — deterministic run manifest.
-- [ ] tests for G0, Li quadrature, sieve sanity, and manifest determinism.
+- [x] `prime_harness/intervals.py` — interval definitions and fold schedules.
+- [x] `prime_harness/sieve_truth.py` — bounded segmented sieve / exact oracle.
+- [x] `prime_harness/li_quadrature.py` — offset Li computation and box `L_j`.
+- [x] `prime_harness/psi_residual.py` — ψ box residual target.
+- [x] `prime_harness/zeta_zeros.py` — zero-table loader.
+- [x] `prime_harness/zero_table_provenance.py` — G0 validation.
+- [x] `prime_harness/manifest.py` — deterministic run manifest.
+- [x] tests for G0, Li quadrature, sieve sanity, and manifest determinism.
 
 ## M2a — ψ explicit-formula benchmark
 
-- [ ] Implement ψ explicit-formula predictor.
-- [ ] Run N-scan over `{1,2,5,10,25,50,100,200}`.
-- [ ] Report saturation envelope.
+- [x] Implement ψ explicit-formula predictor.
+- [x] Add N-scan runner over configurable N values including `{1,2,5,10,25,50,100,200}`.
+- [x] Report saturation envelope in JSON artifact shape.
+- [x] Add CLI entrypoint for audited runs with two zero-table sources.
+- [x] Add fixture-based tests for report shape, envelope monotonicity, JSON serialization, and G0 path.
+- [ ] Execute real N-scan with audited external zero tables.
 - [ ] Debug if sign coherence or zero-indexing fixtures fail.
 
 ## M2b — π explicit-formula benchmark
