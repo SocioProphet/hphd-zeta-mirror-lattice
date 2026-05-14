@@ -19,7 +19,7 @@ def _fixture_zero_lines() -> str:
         rows[idx] = value
 
     anchor_positions = sorted(anchors)
-    for left, right in zip(anchor_positions, anchor_positions[1:], strict=True):
+    for left, right in zip(anchor_positions, anchor_positions[1:]):
         left_v = anchors[left]
         right_v = anchors[right]
         step = (right_v - left_v) / Decimal(right - left)
