@@ -8,12 +8,10 @@ promote results; reports retain `measurement_only_no_novelty_claim` status.
 from __future__ import annotations
 
 import argparse
-import json
-from pathlib import Path
 
 from prime_harness.intervals import PRIMARY_INTERVALS
-from prime_harness.model1_pi_scan import run_model1_pi_scan, write_pi_scan_report
-from prime_harness.model1_psi_scan import DEFAULT_N_VALUES, run_model1_psi_scan, write_psi_scan_report
+from prime_harness.model1_psi_scan import DEFAULT_N_VALUES
+from prime_harness.pair_scans import run_pair_scans
 
 
 def _parse_n_values(raw: str) -> tuple[int, ...]:
@@ -42,47 +40,19 @@ def main() -> int:
     if args.interval not in intervals:
         raise SystemExit(f"unknown interval {args.interval!r}; valid: {sorted(intervals)}")
 
-    output_dir = Path(args.output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    interval = intervals[args.interval]
-    psi_report = run_model1_psi_scan(
-        interval=interval,
+    index = run_pair_scans(
+        interval=intervals[args.interval],
         delta_u=args.delta_u,
         primary_zero_table_path=args.primary_zero_table,
         independent_zero_table_path=args.independent_zero_table,
-        n_values=args.n_values,
-    )
-    pi_report = run_model1_pi_scan(
-        interval=interval,
-        delta_u=args.delta_u,
-        primary_zero_table_path=args.primary_zero_table,
-        independent_zero_table_path=args.independent_zero_table,
+        output_dir=args.output_dir,
         n_values=args.n_values,
     )
 
-    psi_path = output_dir / f"model1_psi_scan_{args.interval}.json"
-    pi_path = output_dir / f"model1_pi_scan_{args.interval}.json"
-    index_path = output_dir / f"model1_pair_scan_{args.interval}_index.json"
-    write_psi_scan_report(psi_report, psi_path)
-    write_pi_scan_report(pi_report, pi_path)
-
-    index = {
-        "schema_version": "prime-harness-v0.2-m2-pair-scan-index",
-        "interval": args.interval,
-        "delta_u": args.delta_u,
-        "n_values": list(args.n_values),
-        "psi_report": str(psi_path),
-        "pi_report": str(pi_path),
-        "psi_manifest_hash": psi_report.manifest_hash,
-        "pi_manifest_hash": pi_report.manifest_hash,
-        "result_status": "measurement_only_no_novelty_claim",
-    }
-    index_path.write_text(json.dumps(index, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-
-    print(f"wrote {psi_path}")
-    print(f"wrote {pi_path}")
-    print(f"wrote {index_path}")
+    print(f"wrote {index.psi_report}")
+    print(f"wrote {index.pi_report}")
+    print(f"psi_manifest_hash={index.psi_manifest_hash}")
+    print(f"pi_manifest_hash={index.pi_manifest_hash}")
     return 0
 
 
