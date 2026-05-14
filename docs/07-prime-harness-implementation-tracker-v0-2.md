@@ -4,7 +4,7 @@ Status: execution tracker for `docs/05-prime-harness-benchmark-spec-v0-2.md`.
 
 ## Current tranche
 
-M0, M1, and M2a are merged. Current open tranche is M2b: π explicit-formula N-scan runner and report shape using the normative real `u`-integral branch convention. This tranche adds the executable path for the π residual Model 1 scan but does not claim benchmark results until audited external zero tables are supplied and G0 passes.
+M0, M1, M2a, and M2b are merged. Current open tranche is M2c: G0 validation CLI, paired ψ/π scan runner, and zero-table acquisition/runbook support. This tranche adds execution support for real paired scans but does not claim benchmark results until audited external zero tables are supplied and G0 passes.
 
 Repository home: `SocioProphet/hphd-zeta-mirror-lattice`.
 
@@ -59,6 +59,15 @@ M0 deliverable format: prose SPEC + claim ledger + implementation tracker. Machi
 - [ ] Execute real π N-scan with audited external zero tables.
 - [ ] Compare π residual behavior to ψ residual behavior.
 - [ ] Freeze Model 1 conventions.
+
+## M2c — Paired scan execution support
+
+- [x] Add G0 zero-table validation CLI.
+- [x] Add reusable paired ψ/π scan orchestration module.
+- [x] Add paired scan CLI for audited I1 execution.
+- [x] Add zero-table acquisition and paired-scan runbook.
+- [x] Add tests for G0 report payload and paired artifact generation on tiny fixture intervals.
+- [ ] Execute paired real scan with audited external zero tables.
 
 ## M3 — Model 1 at scale
 
