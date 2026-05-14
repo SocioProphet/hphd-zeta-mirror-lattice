@@ -4,7 +4,7 @@ Status: execution tracker for `docs/05-prime-harness-benchmark-spec-v0-2.md`.
 
 ## Current tranche
 
-M0 and M1 are merged. Current open tranche is M2a: ψ explicit-formula N-scan runner and report shape. This tranche adds the executable path for the first measured Model 1 scan but does not claim benchmark results until audited external zero tables are supplied and G0 passes.
+M0, M1, and M2a are merged. Current open tranche is M2b: π explicit-formula N-scan runner and report shape using the normative real `u`-integral branch convention. This tranche adds the executable path for the π residual Model 1 scan but does not claim benchmark results until audited external zero tables are supplied and G0 passes.
 
 Repository home: `SocioProphet/hphd-zeta-mirror-lattice`.
 
@@ -52,7 +52,11 @@ M0 deliverable format: prose SPEC + claim ledger + implementation tracker. Machi
 
 ## M2b — π explicit-formula benchmark
 
-- [ ] Implement real `u`-integral predictor for π residuals.
+- [x] Implement real `u`-integral predictor for π residuals.
+- [x] Add N-scan runner over configurable N values including `{1,2,5,10,25,50,100,200}`.
+- [x] Add CLI entrypoint for audited runs with two zero-table sources.
+- [x] Add fixture-based tests for report shape, envelope monotonicity, JSON serialization, G0 path, and branch convention.
+- [ ] Execute real π N-scan with audited external zero tables.
 - [ ] Compare π residual behavior to ψ residual behavior.
 - [ ] Freeze Model 1 conventions.
 
